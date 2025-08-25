@@ -6,36 +6,36 @@ const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icon");
 
 async function checkWeather(city) {
-    const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+  const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
 
-    if (response.status == 404) {
-        document.querySelector(".city").innerHTML = "City not found";
-        document.querySelector(".temp").innerHTML = "";
-        document.querySelector(".humidity").innerHTML = "";
-        document.querySelector(".wind").innerHTML = "";
-        weatherIcon.src = "";
-    } else {
-        var data = await response.json();
+  if (response.status == 404) {
+    document.querySelector(".error").style.display = "block";
+    document.querySelector(".weather").style.display = "none";
+  } else {
+    var data = await response.json();
 
-        document.querySelector(".city").innerHTML = data.name;
-        document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
-        document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
-        document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
+    document.querySelector(".city").innerHTML = data.name;
+    document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
+    document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+    document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
 
-        if (data.weather[0].main == "Clouds") {
-            weatherIcon.src = "https://img.icons8.com/ios-filled/100/000000/cloud.png";
-        } else if (data.weather[0].main == "Clear") {
-            weatherIcon.src = "https://img.icons8.com/ios-filled/100/000000/sun.png";
-        } else if (data.weather[0].main == "Rain") {
-            weatherIcon.src = "https://img.icons8.com/ios-filled/100/000000/rain.png";
-        } else if (data.weather[0].main == "Drizzle") {
-            weatherIcon.src = "https://img.icons8.com/ios-filled/100/000000/light-rain.png";
-        } else if (data.weather[0].main == "Mist") {
-            weatherIcon.src = "https://img.icons8.com/ios-filled/100/000000/fog-day.png";
-        }
+    if (data.weather[0].main == "Clouds") {
+      weatherIcon.src = "https://openweathermap.org/img/wn/03d.png";
+    } else if (data.weather[0].main == "Clear") {
+      weatherIcon.src = "https://openweathermap.org/img/wn/01d.png";
+    } else if (data.weather[0].main == "Rain") {
+      weatherIcon.src = "https://openweathermap.org/img/wn/09d.png";
+    } else if (data.weather[0].main == "Drizzle") {
+      weatherIcon.src = "https://openweathermap.org/img/wn/10d.png";
+    } else if (data.weather[0].main == "Mist") {
+      weatherIcon.src = "https://openweathermap.org/img/wn/50d.png";
     }
+
+    document.querySelector(".weather").style.display = "block";
+    document.querySelector(".error").style.display = "none";
+  }
 }
 
 searchBtn.addEventListener("click", () => {
-    checkWeather(searchBox.value);
+  checkWeather(searchBox.value);
 });
