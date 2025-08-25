@@ -1,3 +1,4 @@
+/* Reset & base styles */
 * {
   margin: 0;
   padding: 0;
@@ -10,52 +11,73 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #74ebd5, #9face6);
+  background: linear-gradient(135deg, #E0F7FA, #B2EBF2); /* Light blue gradient */
 }
 
+/* Card container */
 .card {
   width: 90%;
   max-width: 470px;
-  background: #fff;
+  background: #ffffff;
   color: #333;
   border-radius: 20px;
   padding: 30px 25px;
   text-align: center;
-  box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Search section */
 .search {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
+  margin-top: 10px;
 }
 
 .search input {
   border: none;
   outline: none;
-  padding: 10px 25px;
+  padding: 12px 25px;
   border-radius: 25px;
   font-size: 16px;
   flex: 1;
   background: #f0f0f0;
+  transition: background 0.3s ease;
+}
+
+.search input:focus {
+  background: #e0f7fa;
 }
 
 .search button {
   border: none;
   outline: none;
-  background: #9face6;
+  background: #00acc1; /* slightly darker blue for button */
   border-radius: 50%;
   padding: 10px;
   cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.search button:hover {
+  background: #0097a7;
+  transform: scale(1.1);
 }
 
 .search button img {
   width: 20px;
 }
 
+/* Weather display */
 .weather {
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
 .weather-icon {
@@ -66,24 +88,30 @@ body {
 .weather h1 {
   font-size: 50px;
   font-weight: bold;
+  margin-top: 10px;
 }
 
 .weather h2 {
-  font-size: 30px;
-  margin-top: -10px;
+  font-size: 28px;
+  margin-top: 5px;
+  font-weight: 500;
+  color: #555;
 }
 
+/* Weather details */
 .details {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
-  padding: 0 20px;
+  margin-top: 25px;
+  padding: 0 15px;
+  flex-wrap: wrap;
 }
 
 .col {
   display: flex;
   align-items: center;
   text-align: left;
+  margin: 10px 0;
 }
 
 .col img {
@@ -91,10 +119,25 @@ body {
   margin-right: 10px;
 }
 
+/* Error message */
 .error {
   text-align: center;
   margin-top: 20px;
   display: none;
-  color: red;
+  color: #d32f2f;
   font-weight: bold;
+  font-size: 16px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 500px) {
+  .weather h1 {
+    font-size: 40px;
+  }
+  .weather h2 {
+    font-size: 24px;
+  }
+  .col img {
+    width: 35px;
+  }
 }
