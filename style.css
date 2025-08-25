@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Weather App</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
 * {
   margin: 0;
   padding: 0;
@@ -14,170 +6,95 @@
 }
 
 body {
-  background: linear-gradient(135deg, #E0F7FA, #B2EBF2);
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  background: linear-gradient(135deg, #74ebd5, #9face6);
 }
 
 .card {
   width: 90%;
-  max-width: 400px;
+  max-width: 470px;
   background: #fff;
-  border-radius: 25px;
-  padding: 20px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-}
-
-.location {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 5px;
-}
-
-.location h2 {
-  font-size: 22px;
-  font-weight: 600;
-}
-
-.location span {
-  font-size: 14px;
-  color: #666;
-}
-
-.weather-current {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 15px 0;
-}
-
-.weather-current h1 {
-  font-size: 60px;
-}
-
-.weather-current img {
-  width: 80px;
-}
-
-.weather-details {
-  background: #f9f9f9;
-  border-radius: 15px;
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
-  font-size: 14px;
   color: #333;
+  border-radius: 20px;
+  padding: 30px 25px;
+  text-align: center;
+  box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
 }
 
-.weather-details div {
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.search input {
+  border: none;
+  outline: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-size: 16px;
+  flex: 1;
+  background: #f0f0f0;
+}
+
+.search button {
+  border: none;
+  outline: none;
+  background: #9face6;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.search button img {
+  width: 20px;
+}
+
+.weather {
+  margin-top: 20px;
+}
+
+.weather-icon {
+  width: 100px;
+  margin-top: 10px;
+}
+
+.weather h1 {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.weather h2 {
+  font-size: 30px;
+  margin-top: -10px;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 0 20px;
+}
+
+.col {
   display: flex;
   align-items: center;
-  gap: 5px;
+  text-align: left;
 }
 
-.hourly-forecast {
-  display: flex;
-  justify-content: space-between;
-  background: #f9f9f9;
-  border-radius: 15px;
-  padding: 10px;
-  margin-bottom: 15px;
+.col img {
+  width: 40px;
+  margin-right: 10px;
 }
 
-.hourly-forecast div {
+.error {
   text-align: center;
-  font-size: 14px;
-}
-
-.health {
-  display: flex;
-  justify-content: space-between;
-  background: #f9f9f9;
-  border-radius: 15px;
-  padding: 15px;
-}
-
-.health div {
-  text-align: center;
-}
-
-.health div span {
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  border: 3px solid #4fc3f7;
-  border-radius: 50%;
-  line-height: 50px;
-  font-weight: 600;
-  margin-bottom: 5px;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-around;
-  background: #fff;
-  border-radius: 15px;
   margin-top: 20px;
-  padding: 10px 0;
+  display: none;
+  color: red;
+  font-weight: bold;
 }
-
-.navbar img {
-  width: 25px;
-  opacity: 0.6;
-}
-
-.navbar img.active {
-  opacity: 1;
-}
-</style>
-</head>
-<body>
-
-<div class="card">
-  <div class="location">
-    <h2>New York, US</h2>
-    <img src="https://img.icons8.com/ios-filled/50/000000/marker.png" alt="location" width="20">
-  </div>
-  <span>Tuesday, Aug 8</span>
-
-  <div class="weather-current">
-    <h1>22°C</h1>
-    <img src="https://img.icons8.com/ios/100/000000/cloud.png" alt="cloudy">
-  </div>
-  <p>Cloudy</p>
-
-  <div class="weather-details">
-    <div>Feels like <strong>21°</strong></div>
-    <div><img src="https://img.icons8.com/ios-filled/50/000000/raindrop.png" width="15"/> 70%</div>
-    <div><img src="https://img.icons8.com/ios-filled/50/000000/wind.png" width="15"/> 12 km/h</div>
-  </div>
-
-  <div class="hourly-forecast">
-    <div>Now<br/><img src="https://img.icons8.com/ios/50/000000/cloud.png" width="25"/><br/>22°</div>
-    <div>12 PM<br/><img src="https://img.icons8.com/ios/50/000000/partly-cloudy-day.png" width="25"/><br/>25°</div>
-    <div>1 PM<br/><img src="https://img.icons8.com/ios/50/000000/sun.png" width="25"/><br/>27°</div>
-    <div>2 PM<br/><img src="https://img.icons8.com/ios/50/000000/sun.png" width="25"/><br/>26°</div>
-    <div>4 PM<br/><img src="https://img.icons8.com/ios/50/000000/cloud.png" width="25"/><br/>24°</div>
-  </div>
-
-  <div class="health">
-    <div><span>5</span><br/>UV</div>
-    <div><span>45</span><br/>AQI</div>
-    <div><span>8</span><br/>Pollen</div>
-  </div>
-
-  <div class="navbar">
-    <img src="https://img.icons8.com/ios-filled/50/000000/home.png" class="active"/>
-    <img src="https://img.icons8.com/ios-filled/50/000000/clock.png"/>
-    <img src="https://img.icons8.com/ios-filled/50/000000/square.png"/>
-    <img src="https://img.icons8.com/ios-filled/50/000000/refresh.png"/>
-    <img src="https://img.icons8.com/ios-filled/50/000000/settings.png"/>
-  </div>
-</div>
-
-</body>
-</html>
